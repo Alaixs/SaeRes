@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ceci est la page n°2</title>
+    <style>
+        body {
+            background-color: #1f1f1f;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .emoji {
+            font-size: 3em;
+            margin: 10px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">&#x1F601;</div>
+        <div>Ceci est la page n°2</div>
+        <div class="emoji">&#x1F389;</div>
+        <button class="btn" onclick="window.location.href='https://votresite.com'">Retourner à la page d'accueil</button>
+    </div>
+</body>
+</html>
