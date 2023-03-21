@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mon site avec 6 boutons</title>
+    <style>
+        body {
+            background-color: #1f1f1f;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 20px;
+            font-size: 2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="button" onclick="window.location.href='https://url1.com'">Page 1</button>
+        <button class="button" onclick="window.location.href='https://url2.com'">Page 2</button>
+        <button class="button" onclick="window.location.href='https://url3.com'">Page 3</button>
+        <button class="button" onclick="window.location.href='https://url4.com'">Erreur 404</button>
+        <button class="button" onclick="window.location.href='https://url5.com'">Erreur 403</button>
+        <button class="button" onclick="window.location.href='https://url6.com'">Erreur 401</button>
+        <button class="button" onclick="window.location.href='https://url6.com'">Url vers dossiers</button>
+    </div>
+</body>
+</html>
