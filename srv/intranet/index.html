@@ -50,9 +50,9 @@
         <span style="color: #fff; margin: 0 20px; font-size: 2em; display: flex; justify-content: center;">Test pages</span>
 		<br>
 		<br>
-        <button class="button" onclick="window.location.href='srv/intranet/page1.html'">Page 1</button>
-        <button class="button" onclick="window.location.href='srv/intranet/page2.html'">Page 2</button>
-        <button class="button" onclick="window.location.href='srv/intranet/error/404.html'">Page 404</button>
+        <button class="button" onclick="window.location.href='page1.html'">Page 1</button>
+        <button class="button" onclick="window.location.href='page2.html'">Page 2</button>
+        <button class="button" onclick="window.location.href='/error/404.html'">Page 404</button>
         <button class="button" onclick="window.location.href='https://url6.com'">Url vers dossiers</button>
     </div>
     <script type="text/javascript">
@@ -116,12 +116,12 @@ function toastLogout() {
 
 function pageAdminOnly() {
 	  if (admin) {
-		window.location.href = 'srv/intranet/admin.html';
+		window.location.href = 'admin.html';
 	  } else if(user) {
-		window.location.href = 'srv/intranet/error/403.html';
+		window.location.href = '/error/403.html';
 	  }
 	  else {
-		window.location.href = 'srv/intranet/error/401.html';
+		window.location.href = '/error/401.html';
 	  }
 }
 

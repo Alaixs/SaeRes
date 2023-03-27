@@ -30,18 +30,18 @@
         <p>You are logged in as an administrator.</p>
         <br>
         <br>
-        <button onclick="document.location.href='srv/intranet/index.html'">Go to the test page</button>
+        <button onclick="document.location.href='index.html'">Go to the test page</button>
         <button onclick="logout()">Logs out</button>
     </div>
     <script>
         if (!localStorage.getItem('isConnected')) {
-            window.location.href = 'srv/intranet/error/401.html';
+            window.location.href = '/error/401.html';
         } else {
             document.querySelector('.container').style.display = 'block';
         }
         function logout() {
             localStorage.removeItem('isConnected');
-            window.location.href = 'srv/intranet/intranet.html';
+            window.location.href = 'intranet.html';
         }
     </script>
 </body>
