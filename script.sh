@@ -34,6 +34,11 @@ echo "$IP intranet.tek-it-izy.org" | sudo tee -a /etc/hosts
 sudo mkdir /srv/www/public/emptydir
 sudo sed -i "/<Directory srv/www/public>/,/<\/Directory>/ s/Options \(.*\)/Options Indexes \1/" /etc/apache2/sites-available/public.conf
 
+#ajouter les autorisations
+sudo chmod -R 755 /srv/www/
+sudo chown -R www-data:www-data /srv/www/
+
+
 #on ajoute met à jours notre apache
 sudo a2ensite intranet.conf
 sudo a2ensite public.conf
