@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Page Admin</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px;
+            display: none;
+        }
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin page of Tek-it-izy</h1>
+        <p>You are logged in as an administrator.</p>
+        <br>
+        <br>
+        <button onclick="document.location.href='srv/intranet/index.html'">Go to the test page</button>
+        <button onclick="logout()">Logs out</button>
+    </div>
+    <script>
+        if (!localStorage.getItem('isConnected')) {
+            window.location.href = 'srv/intranet/error/401.html';
+        } else {
+            document.querySelector('.container').style.display = 'block';
+        }
+        function logout() {
+            localStorage.removeItem('isConnected');
+            window.location.href = 'srv/intranet/intranet.html';
+        }
+    </script>
+</body>
+</html>
