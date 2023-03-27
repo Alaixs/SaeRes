@@ -35,9 +35,15 @@ sudo mkdir /srv/www/public/emptydir
 sudo sed -i "/<Directory srv/www/public>/,/<\/Directory>/ s/Options \(.*\)/Options Indexes \1/" /etc/apache2/sites-available/public.conf
 
 #ajouter les autorisations
-sudo chmod -R 755 /srv/www/
-sudo chown -R www-data:www-data /srv/www/
+sudo chown -R admin:www-data /srv/www/public/index.html
+sudo chown -R admin:www-data /srv/intranet/index.html
+sudo chown -R admin:www-data /var/www/html/index.html
+sudo chmod -R 775 /srv/www/public/index.html
+sudo chmod -R 775 /srv/intranet/index.html
+sudo chmod -R 775 /var/www/html/index.html
 
+# on ajoute le port 2080 dans le fichier /etc/apache2/ports.conf
+echo "Listen 2080" | sudo tee -a /etc/apache2/ports.conf > /dev/null
 
 #on ajoute met à jours notre apache
 sudo a2ensite intranet.conf
@@ -45,4 +51,4 @@ sudo a2ensite public.conf
 sudo a2ensite default.conf
 
 #redemarrage apache
-sudo systemctl restart apache2
+sudo service apache2 restart
