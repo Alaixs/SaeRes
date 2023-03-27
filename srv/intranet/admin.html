@@ -30,14 +30,9 @@
         <p>You are logged in as an administrator.</p>
         <br>
         <br>
-        <button onclick="document.location.href='index.html'">Go back to the test page</button>
+        <button onclick="document.location.href='testpage.html'">Go back to the test page</button>
     </div>
     <script>
-        
-        function logout() {
-            localStorage.removeItem('isConnected');
-            window.location.href = 'testpage.html';
-        }
         
         if (!localStorage.getItem('isConnected')) {
             window.location.href = '/error/401.html';
