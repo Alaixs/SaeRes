@@ -2,16 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Mon site avec 6 boutons</title>
+    <title>Public page</title>
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css'>
     <style>
         body {
             background-color: #1f1f1f;
             color: #fff;
             font-family: Arial, sans-serif;
-        }
-        .container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -30,17 +28,90 @@
         .button:hover {
             background-color: #3e8e41;
         }
+        .container {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <button class="button" onclick="window.location.href='https://url1.com'">Page 1</button>
-        <button class="button" onclick="window.location.href='https://url2.com'">Page 2</button>
-        <button class="button" onclick="window.location.href='https://url3.com'">Page 3</button>
-        <button class="button" onclick="window.location.href='https://url4.com'">Erreur 404</button>
-        <button class="button" onclick="window.location.href='https://url5.com'">Erreur 403</button>
-        <button class="button" onclick="window.location.href='https://url6.com'">Erreur 401</button>
+
+	<div class="container">
+		<span style="color: #fff; margin: 0 20px; font-size: 2em; display: flex; justify-content: center;">Connection and error test</span>
+		<br>
+		<br>
+		<br>
+		<button class="button" onclick="becomeAdmin()">Log in as administrator</button>
+		<button class="button" onclick="becomeUser()">Log in as user</button>
+		<button class="button" onclick="logout()">Logout</button>
+		<button class="button" onclick="window.location.href='/srv/www/public/admin.html'">Admin Page</button>
+		<br>
+		<br>
+		<br>
+        <span style="color: #fff; margin: 0 20px; font-size: 2em; display: flex; justify-content: center;">Test pages</span>
+		<br>
+		<br>
+        <button class="button" onclick="window.location.href='/srv/www/public/page1.html'">Page 1</button>
+        <button class="button" onclick="window.location.href='/srv/www/public/page2.html'">Page 2</button>
+        <button class="button" onclick="window.location.href='/srv/www/public/error/404.html'">Page 404</button>
         <button class="button" onclick="window.location.href='https://url6.com'">Url vers dossiers</button>
     </div>
+    <script type="text/javascript">
+
+function becomeAdmin() {
+  localStorage.setItem('Status', "admin");
+  toastAdmin();
+}
+
+function becomeUser() {
+  localStorage.setItem('Status', "user");
+  toastUser();
+}
+
+function logout() {
+  localStorage.removeItem('Status');
+  toastLogout();
+}
+
+function toastAdmin() {
+  Toastify({
+    text: "✅ Vous êtes connecté en tant qu'administrateur",
+    duration: 3000,
+    destination: 'https://github.com/apvarun/toastify-js',
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    positionLeft: true, // `true` or `false`
+    backgroundColor: "#2bc368"
+  }).showToast();
+}
+
+function toastUser() {
+  Toastify({
+    text: "✅ Vous êtes connecté en tant qu'utilisateur",
+    duration: 3000,
+    destination: 'https://github.com/apvarun/toastify-js',
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    positionLeft: true, // `true` or `false`
+    backgroundColor: "#2bc368"
+  }).showToast();
+}
+
+function toastLogout() {
+		Toastify({
+    text: "Utilisateur déconnecté",
+    duration: 3000,
+    destination: 'https://github.com/apvarun/toastify-js',
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    positionLeft: true, // `true` or `false`
+    backgroundColor: "#c82c5b"
+	  }).showToast();
+}
+
+    </script>
+	  <script src='https://cdn.jsdelivr.net/npm/toastify-js'></script>
 </body>
 </html>

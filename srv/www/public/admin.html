@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px;
+            display: none;
+        }
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin page of Tek-it-izy</h1>
+        <p>You are logged in as an administrator.</p>
+        <br>
+        <br>
+        <button onclick="logout()">Logs out</button>
+    </div>
+    <script>
+        if (localStorage.getItem("Status") === "admin") {
+            document.querySelector('.container').style.display = 'block';
+        } else if (localStorage.getItem("Status") === "user") {
+            window.location.href = '/srv/www/public/error/403.html';
+        } else {
+            window.location.href = '/srv/www/public/error/401.html';
+        }
+
+        function logout() {
+            localStorage.removeItem('isConnected');
+            window.location.href = '/srv/www/public/index.html';
+        }
+    </script>
+</body>
+</html>
