@@ -4,14 +4,6 @@
 sudo apt-get update
 sudo apt-get upgrade -y
 
-#Change le layout du keyboard
-sudo raspi-config nonint do_change_keyboard_layout fr
-
-#changement des paramètres réseaux
-sudo sed -i 's/^.*$/nameserver 10.2.40.230/' /etc/resolv.conf
-echo "static ip_adress=10.192.51.245/16" | sudo tee -a /etc/dhcpcd.conf
-echo "static routers=10.192.0.255" | sudo tee -a /etc/dhcpcd.conf
-
 #installation apache
 sudo apt-get install apache2 -y
 
