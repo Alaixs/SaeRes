@@ -34,14 +34,15 @@
         <button onclick="logout()">Logs out</button>
     </div>
     <script>
+        function logout() {
+            localStorage.removeItem('isConnected');
+            window.location.href = 'index.html';
+        }
+        
         if (!localStorage.getItem('isConnected')) {
             window.location.href = '/error/401.html';
         } else {
             document.querySelector('.container').style.display = 'block';
-        }
-        function logout() {
-            localStorage.removeItem('isConnected');
-            window.location.href = 'index.html';
         }
     </script>
 </body>
