@@ -36,14 +36,14 @@
         if (localStorage.getItem("Status") === "admin") {
             document.querySelector('.container').style.display = 'block';
         } else if (localStorage.getItem("Status") === "user") {
-            window.location.href = '/srv/www/public/error/403.html';
+            window.location.href = '/error/403.html';
         } else {
-            window.location.href = '/srv/www/public/error/401.html';
+            window.location.href = '/error/401.html';
         }
 
         function logout() {
             localStorage.removeItem('isConnected');
-            window.location.href = '/srv/www/public/index.html';
+            window.location.href = 'index.html';
         }
     </script>
 </body>
