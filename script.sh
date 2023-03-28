@@ -8,7 +8,7 @@ sudo apt-get upgrade -y
 sudo apt-get install apache2 -y
 
 #installation php
-sudo apt-get install php
+sudo apt-get install php -y
 
 #récupère les fichiers on le dezip
 sudo wget https://github.com/Alaixs/SaeRes/archive/refs/heads/main.zip
