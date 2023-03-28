@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Intranet Page</title>
+    <title>Public page</title>
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css'>
     <style>
         body {
@@ -56,22 +56,19 @@
         <button class="button" onclick="window.location.href='https://url6.com'">Url vers dossiers</button>
     </div>
     <script type="text/javascript">
-let admin = false;
+
 function becomeAdmin() {
-  admin = true;
+  localStorage.setItem('Status', "admin");
   toastAdmin();
 }
 
-let user = false;
 function becomeUser() {
-  admin = false;
-  user = true;
+  localStorage.setItem('Status', "user");
   toastUser();
 }
 
 function logout() {
-  admin = false;
-  user = false;
+  localStorage.removeItem('Status');
   toastLogout();
 }
 
