@@ -33,13 +33,18 @@
         <button onclick="document.location.href='testpage.html'">Go back to the test page</button>
     </div>
     <script>
-        
-        if (!localStorage.getItem('isConnected')) {
-            window.location.href = '/error/401.html';
-        } else {
+        if (localStorage.getItem("Status") === "admin") {
             document.querySelector('.container').style.display = 'block';
+        } else if (localStorage.getItem("Status") === "user") {
+            window.location.href = '/error/403.html';
+        } else {
+            window.location.href = '/error/401.html';
         }
 
+        function logout() {
+            localStorage.removeItem('Status');
+            window.location.href = 'testpage.html';
+        }
     </script>
 </body>
 </html>
