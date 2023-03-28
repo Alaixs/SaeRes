@@ -26,9 +26,7 @@ echo "$IP  www.tek-it-izy.org" | sudo tee -a /etc/hosts
 echo "$IP intranet.tek-it-izy.org" | sudo tee -a /etc/hosts
 
 #on ajoute dans le fichier conf de apache l’index pour parcourir les dossiers
-sudo mkdir /srv/www/public/emptydir
-sudo sed -i "/<Directory srv/www/public>/,/<\/Directory>/ s/Options \(.*\)/Options Indexes \1/" /etc/apache2/sites-available/public.conf
-
+#???
 #ajouter les autorisations
 sudo chown -R admin:www-data /srv/www/public/index.html
 sudo chown -R admin:www-data /srv/intranet/index.html
