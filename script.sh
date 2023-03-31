@@ -14,8 +14,11 @@ sudo apt-get install php -y
 sudo wget https://github.com/Alaixs/SaeRes/archive/refs/heads/main.zip
 unzip main.zip
 
-#on bouge les fichiers dans leur endroits respectif
+#chargement du site par défaut
+sudo rm -r /var/www/html/
 sudo mv SaeRes-main/html /var/www/
+
+#on bouge les fichiers dans leur endroits respectif
 sudo mv SaeRes-main/intranet.conf /etc/apache2/sites-available/
 sudo mv SaeRes-main/public.conf /etc/apache2/sites-available/
 sudo mv SaeRes-main/000-default.conf /etc/apache2/sites-available/
