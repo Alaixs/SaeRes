@@ -24,6 +24,18 @@ sudo mv SaeRes-main/srv ../../
 IP=$(hostname -I | awk '{print $1}')
 echo "$IP  www.tek-it-izy.org" | sudo tee -a /etc/hosts
 echo "$IP intranet.tek-it-izy.org" | sudo tee -a /etc/hosts
+echo "$IP raspb245.univ-lr.fr" | sudo tee -a /etc/hosts
+
+#Ajoute des users pour test site par défaut
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 'tanguy') ytanguy
+sudo useradd -m -s /bin/bash -p $(openssl passwd -1 'cody') scody
+
+sudo mkdir /var/www/html/ytanguy
+sudo mkdir /var/www/html/scody
+
+sudo chmod -R u+rwx /var/www/html/ytanguy
+sudo chmod -R u+rwx /var/www/html/scody
+
 
 #on ajoute dans le fichier conf de apache l’index pour parcourir les dossiers
 #???
