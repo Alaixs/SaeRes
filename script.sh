@@ -15,6 +15,7 @@ sudo wget https://github.com/Alaixs/SaeRes/archive/refs/heads/main.zip
 unzip main.zip
 
 #on bouge les fichiers dans leur endroits respectif
+sudo mv html /var/www/
 sudo mv SaeRes-main/intranet.conf /etc/apache2/sites-available/
 sudo mv SaeRes-main/public.conf /etc/apache2/sites-available/
 sudo mv SaeRes-main/default.conf /etc/apache2/sites-available/
