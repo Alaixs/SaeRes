@@ -18,6 +18,7 @@ unzip main.zip
 sudo mv html /var/www/
 sudo mv SaeRes-main/intranet.conf /etc/apache2/sites-available/
 sudo mv SaeRes-main/public.conf /etc/apache2/sites-available/
+sudo mv SaeRes-main/000-default.conf /etc/apache2/sites-available/
 sudo mv SaeRes-main/srv ../../
 
 #on ajoute dans le fichier host les redirections url
