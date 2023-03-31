@@ -53,6 +53,7 @@ echo "Listen 2080" | sudo tee -a /etc/apache2/ports.conf > /dev/null
 #on ajoute met à jours notre apache
 sudo a2ensite intranet.conf
 sudo a2ensite public.conf
+sudo a2ensite 000-default.conf
 
 #redemarrage apache
 sudo service apache2 restart
