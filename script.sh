@@ -35,8 +35,11 @@ sudo useradd -m -s /bin/bash -p $(openssl passwd -1 'tanguy') ytanguy
 sudo useradd -m -s /bin/bash -p $(openssl passwd -1 'cody') scody
 
 #Ajout des droits au user pour leur propre dossier
-sudo chmod -R u+rwx /var/www/html/ytanguy
-sudo chmod -R u+rwx /var/www/html/scody
+sudo chown -R scody:scody /var/www/html/scody
+sudo chmod -R ug+rwX /var/www/html/scody
+sudo chown -R ytanguy:ytanguy /var/www/html/ytanguy
+sudo chmod -R ug+rwX /var/www/html/ytanguy
+
 
 #on enleve les placeholder
 sudo rm /srv/www/public/testFolder/emptyFolder/placeholder
