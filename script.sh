@@ -42,6 +42,7 @@ sudo chmod -R u+rwx /var/www/html/scody
 
 #on enleve les placeholder
 sudo rm /srv/www/public/testFolder/empytFolder/placeholder
+sudo rm /srv/intranet/testFolder/empytFolder/placeholder
 sudo rm /srv/www/public/log/acces/placeholder
 sudo rm /srv/www/public/log/erreur/placeholder
 sudo rm /srv/intranet/log/acces/placeholder
