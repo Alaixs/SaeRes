@@ -40,9 +40,13 @@ sudo mkdir /var/www/html/scody
 sudo chmod -R u+rwx /var/www/html/ytanguy
 sudo chmod -R u+rwx /var/www/html/scody
 
+#on enleve les placeholder
+sudo rm /srv/www/public/testFolder/empytFolder/placeholder
+sudo rm /srv/www/public/log/acces/placeholder
+sudo rm /srv/www/public/log/erreur/placeholder
+sudo rm /srv/intranet/log/acces/placeholder
+sudo rm /srv/intranet/log/erreur/placeholder
 
-#on ajoute dans le fichier conf de apache l’index pour parcourir les dossiers
-#???
 #ajouter les autorisations
 sudo chown -R admin:www-data /srv/www/public/index.html
 sudo chown -R admin:www-data /srv/intranet/index.html
