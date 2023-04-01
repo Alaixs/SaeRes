@@ -1,97 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Intranet page</title>
-	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css'>
-    <style>
-        body {
-            background-color: #1f1f1f;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .button {
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            padding: 20px;
-            font-size: 2em;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #3e8e41;
-        }
-        .container {
-            text-align: center;
-        }
-    </style>
+	<title>Welcome to tek-it-izy.org !</title>
 </head>
 <body>
-
-	<div class="container">
-		<span style="color: #fff; margin: 0 20px; font-size: 2em; display: flex; justify-content: center;">Connection and error test</span>
-		<br>
-		<br>
-		<br>
-    <button class="button" onclick="window.location.href='/loremipsum'">Page 404</button>
-    <button class="button" onclick="window.location.href='chmodgo-r.html'">Page 403</button>
-		<br>
-		<br>
-		<br>
-        <span style="color: #fff; margin: 0 20px; font-size: 2em; display: flex; justify-content: center;">Test pages</span>
-		<br>
-		<br>
-        <button class="button" onclick="window.location.href='page1.html'">Page 1</button>
-        <button class="button" onclick="window.location.href='page2.html'">Page 2</button>
-        <button class="button" onclick="window.location.href='/testFolder/'">Test folder</button>
-    </div>
-    <script type="text/javascript">
-
-function login() {
-  localStorage.setItem('Status', "connected");
-  toastAdmin();
-}
-
-function logout() {
-  localStorage.removeItem('Status');
-  toastLogout();
-}
-
-function toastAdmin() {
-  Toastify({
-    text: "Vous êtes connecté ! ✅",
-    duration: 3000,
-    destination: 'https://github.com/apvarun/toastify-js',
-    newWindow: true,
-    close: true,
-    gravity: "top", // `top` or `bottom`
-    positionLeft: true, // `true` or `false`
-    backgroundColor: "#2bc368"
-  }).showToast();
-}
-
-
-function toastLogout() {
-		Toastify({
-    text: "Vous êtes déconnecté",
-    duration: 3000,
-    destination: 'https://github.com/apvarun/toastify-js',
-    newWindow: true,
-    close: true,
-    gravity: "top", // `top` or `bottom`
-    positionLeft: true, // `true` or `false`
-    backgroundColor: "#c82c5b"
-	  }).showToast();
-}
-
-    </script>
-	  <script src='https://cdn.jsdelivr.net/npm/toastify-js'></script>
+	<h1>Welcome to tek-it-izy.org ! 😃😃😃</h1>
+	<p>We are happy to have you here! Enjoy your stay 😊</p>
 </body>
 </html>
