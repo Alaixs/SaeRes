@@ -59,10 +59,9 @@ sudo chmod -R 775 /var/www/html/index.html
 # on ajoute le port 2080 dans le fichier /etc/apache2/ports.conf
 echo "Listen 2080" | sudo tee -a /etc/apache2/ports.conf > /dev/null
 
-#on ajoute met à jours notre apache
+#on active les nouveaux sites
 sudo a2ensite intranet.conf
 sudo a2ensite public.conf
-sudo a2ensite 000-default.conf
 
 #redemarrage apache
 sudo service apache2 restart
