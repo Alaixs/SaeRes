@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Formulaire de connexion</title>
+    <title>Intranet Page</title>
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css'>
     <style>
         body {
             background-color: #1f1f1f;
@@ -13,80 +14,118 @@
             align-items: center;
             height: 100vh;
         }
-        form {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        input[type=text], input[type=password] {
-            margin: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            background-color: #fff;
-            width: 100%;
-        }
-        input[type=submit] {
+        .button {
             background-color: #4CAF50;
             color: #fff;
             border: none;
-            padding: 10px;
-            font-size: 1em;
+            padding: 20px;
+            font-size: 2em;
             border-radius: 5px;
             cursor: pointer;
             margin: 10px;
             transition: background-color 0.3s ease;
         }
-        input[type=submit]:hover {
+        .button:hover {
             background-color: #3e8e41;
         }
-
-        .error-message {
-            color: #ff3b3b;
-            font-size: 0.8em;
-            margin: 5px;
-            transition: visibility 0s, opacity 0.5s linear;
+        .container {
+            text-align: center;
         }
-
     </style>
 </head>
 <body>
 
-    <form>
-        <h2>Connexion intranet Tek-it-izy</h2>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-        <input type="submit" value="Se connecter" onclick="login()">
-        <div class="error-message" id="error-message">Incorrect login information</div>
-    </form>
-
-    <script>
-const usernameAdmin = "intranet";
-const passwordAdmin = "T&k!t!zY";
-
-if (localStorage.getItem('isConnected') === "true") {
-    window.location.href = "intranet.html";
+	<div class="container">
+		<span style="color: #fff; margin: 0 20px; font-size: 2em; display: flex; justify-content: center;">Connection and error test</span>
+		<br>
+		<br>
+		<br>
+		<button class="button" onclick="becomeAdmin()">Log in as administrator</button>
+		<button class="button" onclick="becomeUser()">Log in as user</button>
+		<button class="button" onclick="logout()">Logout</button>
+		<button class="button" onclick="pageAdminOnly()">Admin Page</button>
+		<br>
+		<br>
+		<br>
+        <span style="color: #fff; margin: 0 20px; font-size: 2em; display: flex; justify-content: center;">Test pages</span>
+		<br>
+		<br>
+        <button class="button" onclick="window.location.href='page1.html'">Page 1</button>
+        <button class="button" onclick="window.location.href='page2.html'">Page 2</button>
+        <button class="button" onclick="window.location.href='/error/404.html'">Page 404</button>
+        <button class="button" onclick="window.location.href='https://url6.com'">Url vers dossiers</button>
+    </div>
+    <script type="text/javascript">
+let admin = false;
+function becomeAdmin() {
+  admin = true;
+  toastAdmin();
 }
 
-function login() {
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    if (username === usernameAdmin && password === passwordAdmin) {
-        localStorage.setItem('isConnected', true);
-        console.log(localStorage.getItem('isConnected'));
-    } else {
-        document.getElementById("error").style.display = "block";
-    }
+let user = false;
+function becomeUser() {
+  admin = false;
+  user = true;
+  toastUser();
+}
+
+function logout() {
+  admin = false;
+  user = false;
+  toastLogout();
+}
+
+function toastAdmin() {
+  Toastify({
+    text: "✅ Vous êtes connecté en tant qu'administrateur",
+    duration: 3000,
+    destination: 'https://github.com/apvarun/toastify-js',
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    positionLeft: true, // `true` or `false`
+    backgroundColor: "#2bc368"
+  }).showToast();
+}
+
+function toastUser() {
+  Toastify({
+    text: "✅ Vous êtes connecté en tant qu'utilisateur",
+    duration: 3000,
+    destination: 'https://github.com/apvarun/toastify-js',
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    positionLeft: true, // `true` or `false`
+    backgroundColor: "#2bc368"
+  }).showToast();
+}
+
+function toastLogout() {
+		Toastify({
+    text: "Utilisateur déconnecté",
+    duration: 3000,
+    destination: 'https://github.com/apvarun/toastify-js',
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    positionLeft: true, // `true` or `false`
+    backgroundColor: "#c82c5b"
+	  }).showToast();
+}
+
+function pageAdminOnly() {
+	  if (admin) {
+		window.location.href = 'admin.html';
+	  } else if(user) {
+		window.location.href = '/error/403.html';
+	  }
+	  else {
+		window.location.href = '/error/401.html';
+	  }
 }
 
     </script>
-
+	  <script src='https://cdn.jsdelivr.net/npm/toastify-js'></script>
 </body>
 </html>
