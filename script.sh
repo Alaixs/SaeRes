@@ -34,15 +34,21 @@ echo "$IP raspb245.univ-lr.fr" | sudo tee -a /etc/hosts
 sudo useradd -m -s /bin/bash -p $(openssl passwd -1 'tanguy') ytanguy
 sudo useradd -m -s /bin/bash -p $(openssl passwd -1 'cody') scody
 
-sudo mkdir /var/www/html/ytanguy
-sudo mkdir /var/www/html/scody
+#Ajout des droits au user pour leur propre dossier
+sudo chown -R scody:scody /var/www/html/scody
+sudo chmod -R ug+rwX /var/www/html/scody
+sudo chown -R ytanguy:ytanguy /var/www/html/ytanguy
+sudo chmod -R ug+rwX /var/www/html/ytanguy
 
-sudo chmod -R u+rwx /var/www/html/ytanguy
-sudo chmod -R u+rwx /var/www/html/scody
 
+#on enleve les placeholder
+sudo rm /srv/www/public/testFolder/emptyFolder/placeholder
+sudo rm /srv/intranet/testFolder/emptyFolder/placeholder
+sudo rm /srv/www/public/log/acces/placeholder
+sudo rm /srv/www/public/log/erreur/placeholder
+sudo rm /srv/intranet/log/acces/placeholder
+sudo rm /srv/intranet/log/erreur/placeholder
 
-#on ajoute dans le fichier conf de apache l’index pour parcourir les dossiers
-#???
 #ajouter les autorisations
 sudo chown -R admin:www-data /srv/www/public/index.html
 sudo chown -R admin:www-data /srv/intranet/index.html
@@ -54,10 +60,9 @@ sudo chmod -R 775 /var/www/html/index.html
 # on ajoute le port 2080 dans le fichier /etc/apache2/ports.conf
 echo "Listen 2080" | sudo tee -a /etc/apache2/ports.conf > /dev/null
 
-#on ajoute met à jours notre apache
+#on active les nouveaux sites
 sudo a2ensite intranet.conf
 sudo a2ensite public.conf
-sudo a2ensite 000-default.conf
 
 #redemarrage apache
 sudo service apache2 restart
