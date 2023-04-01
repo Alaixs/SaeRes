@@ -40,6 +40,8 @@ sudo chmod -R ug+rwX /var/www/html/scody
 sudo chown -R ytanguy:ytanguy /var/www/html/ytanguy
 sudo chmod -R ug+rwX /var/www/html/ytanguy
 
+#On ajoute le mot de passe pour le site intranet
+echo "T&k!t!zY" | sudo htpasswd -i /etc/apache2/.htpasswd intranet
 
 #on enleve les placeholder
 sudo rm /srv/www/public/testFolder/emptyFolder/placeholder
