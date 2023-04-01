@@ -30,21 +30,27 @@
         <br>
         <br>
         <button onclick="document.location.href='intranet.html'">Go to the test page</button>
-        <button onclick="logout("intranet.tek-it-izy.org:2080")">Logout</button>
+        <button onclick="logout()">Logout</button>
     </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        function logout(domain) {
-  let cookies = document.cookie.split(";");
-  for (let i = 0; i < cookies.length; i++) {
-    let cookie = cookies[i];
-    while (cookie.charAt(0) == " ") {
-      cookie = cookie.substring(1);
-    }
-    if (cookie.indexOf(domain) == 0) {
-      let cookieName = cookie.split("=")[0];
-      document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    }
-  }
+function logout() {
+  jQuery.ajax({
+    type: "GET",
+    url: "/myapp/logout",
+    async: false,
+    username: "logmeout",
+    password: "123456",
+    headers: { "Authorization": "Basic xxx" }
+  })
+  .done(function(){
+    // Si nous n'obtenons pas d'erreur, nous avons en fait une erreur comme nous nous attendons à un 401!
+  })
+  .fail(function(){
+    // Nous nous attendons à obtenir une erreur 401 Unauthorized! Dans ce cas, nous sommes déconnectés avec succès et nous redirigeons l'utilisateur.
+    window.location = "index.html";
+  });
+  return false;
 }
 
     </script>
