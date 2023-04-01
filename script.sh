@@ -51,6 +51,10 @@ sudo rm /srv/www/public/log/erreur/placeholder
 sudo rm /srv/intranet/log/acces/placeholder
 sudo rm /srv/intranet/log/erreur/placeholder
 
+#Changement permission pour test page erreur
+chmod go-r /srv/intranet/chmodgo-r.html
+chmod go-r /srv/www/public/chmodgo-r.html
+
 #ajouter les autorisations
 sudo chown -R admin:www-data /srv/www/public/index.html
 sudo chown -R admin:www-data /srv/intranet/index.html
