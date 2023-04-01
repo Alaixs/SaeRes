@@ -40,10 +40,11 @@
 		<br>
 		<br>
 		<br>
-		<button class="button" onclick="becomeAdmin()">Log in as administrator</button>
-		<button class="button" onclick="becomeUser()">Log in as user</button>
+		<button class="button" onclick="login()">Log in</button>
 		<button class="button" onclick="logout()">Logout</button>
 		<button class="button" onclick="window.location.href='admin.html'">Admin Page</button>
+    <button class="button" onclick="window.location.href='/loremipsum'">Page 404</button>
+    <button class="button" onclick="window.location.href='chmodgo-r.html'">Page 403</button>
 		<br>
 		<br>
 		<br>
@@ -52,19 +53,13 @@
 		<br>
         <button class="button" onclick="window.location.href='page1.html'">Page 1</button>
         <button class="button" onclick="window.location.href='page2.html'">Page 2</button>
-        <button class="button" onclick="window.location.href='404.html'">Page 404</button>
-        <button class="button" onclick="window.location.href='/testFolder/'">Url vers dossiers</button>
+        <button class="button" onclick="window.location.href='/testFolder/'">Test folder</button>
     </div>
     <script type="text/javascript">
 
-function becomeAdmin() {
-  localStorage.setItem('Status', "admin");
+function login() {
+  localStorage.setItem('Status', "connected");
   toastAdmin();
-}
-
-function becomeUser() {
-  localStorage.setItem('Status', "user");
-  toastUser();
 }
 
 function logout() {
@@ -74,7 +69,7 @@ function logout() {
 
 function toastAdmin() {
   Toastify({
-    text: "✅ Vous êtes connecté en tant qu'administrateur",
+    text: "Vous êtes connecté ! ✅",
     duration: 3000,
     destination: 'https://github.com/apvarun/toastify-js',
     newWindow: true,
@@ -85,22 +80,10 @@ function toastAdmin() {
   }).showToast();
 }
 
-function toastUser() {
-  Toastify({
-    text: "✅ Vous êtes connecté en tant qu'utilisateur",
-    duration: 3000,
-    destination: 'https://github.com/apvarun/toastify-js',
-    newWindow: true,
-    close: true,
-    gravity: "top", // `top` or `bottom`
-    positionLeft: true, // `true` or `false`
-    backgroundColor: "#2bc368"
-  }).showToast();
-}
 
 function toastLogout() {
 		Toastify({
-    text: "Utilisateur déconnecté",
+    text: "Vous êtes déconnecté",
     duration: 3000,
     destination: 'https://github.com/apvarun/toastify-js',
     newWindow: true,

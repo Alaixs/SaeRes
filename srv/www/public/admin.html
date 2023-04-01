@@ -33,10 +33,8 @@
         <button onclick="logout()">Logs out</button>
     </div>
     <script>
-        if (localStorage.getItem("Status") === "admin") {
+        if (localStorage.getItem("Status") === "connected") {
             document.querySelector('.container').style.display = 'block';
-        } else if (localStorage.getItem("Status") === "user") {
-            window.location.href = '/error/403.html';
         } else {
             window.location.href = '/error/401.html';
         }
