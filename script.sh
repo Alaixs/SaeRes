@@ -34,9 +34,7 @@ echo "$IP raspb245.univ-lr.fr" | sudo tee -a /etc/hosts
 sudo useradd -m -s /bin/bash -p $(openssl passwd -1 'tanguy') ytanguy
 sudo useradd -m -s /bin/bash -p $(openssl passwd -1 'cody') scody
 
-sudo mkdir /var/www/html/ytanguy
-sudo mkdir /var/www/html/scody
-
+#Ajout des droits au user pour leur propre dossier
 sudo chmod -R u+rwx /var/www/html/ytanguy
 sudo chmod -R u+rwx /var/www/html/scody
 
