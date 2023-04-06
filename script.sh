@@ -76,8 +76,8 @@ sudo service apache2 restart
 clear
 
 if ! command -v apache2 >/dev/null || ! command -v php >/dev/null || [ ! -d /srv/ ] || [ ! -f /var/www/html/index.html ] || [ ! -f /etc/apache2/sites-available/intranet.conf ] || [ ! -f /etc/apache2/sites-available/public.conf ] || [ ! -f /etc/apache2/sites-available/000-default.conf ] || [ ! -f /etc/apache2/.htpasswd ]; then
-  echo "Erreur : il y a un problème avec l'installation, vérifiez l'emplacement des fichiers ou recommencez les étapes de la notice. ❌"
+  echo "Error: there is a problem with the installation, check the location of the files or repeat the steps in the manual. ❌"
   exit 1
 else
-  echo "Le script s'est bien installé, votre serveur est prêt à être utilisé ! ✅"
-fi
+  echo "The script has installed successfully, your server is ready to use! ✅"
+ fi
